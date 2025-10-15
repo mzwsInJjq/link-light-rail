@@ -35,3 +35,4 @@ python seattle-link\get_stops_for_route.py
 
 ## Acknowledgements
 - Based on the link-map work by @waldenhillegass (https://github.com/waldenhillegass/link-map). Thanks for the inspiration.
+- Data from Sound Transit Open Transit Data (OTD): https://www.soundtransit.org/help-contacts/business-information/open-transit-data-otd

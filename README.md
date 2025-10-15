@@ -29,9 +29,9 @@ python seattle-link\get_stops_for_route.py
 ```
 
 ## Notes
-- Each script uses the OneBusAway API and currently contains an API key inside the script. Replace the key in the files if you have your own.
+- Each script uses the OneBusAway API and currently contains a dummy API key inside the script. Replace the key in the files if you have your own.
 - Output is printed to the terminal with simple ANSI color formatting and includes vehicle id, direction, next stop and seconds until arrival.
 - The code includes defensive handling for missing fields in API responses, but real-world responses can vary. Improvements are welcome.
 
 ## Acknowledgements
-- Based on the link-board work by @waldenhillegass (https://github.com/waldenhillegass/link-map). Thanks for the inspiration.
+- Based on the link-map work by @waldenhillegass (https://github.com/waldenhillegass/link-map). Thanks for the inspiration.

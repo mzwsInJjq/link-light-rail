@@ -12,14 +12,22 @@ api_key = "YOUR_API_KEY"
 parser = argparse.ArgumentParser(description="Seattle Link Light Rail Train Tracker")
 parser.add_argument('-l', '--line', type=str, choices=['1', '2', 'T'], default='1', help='Line to track (default: 1)')
 args = parser.parse_args()
+
 line_to_route_id = {
+    'T': '40_TLINE',
     '1': '40_100479',
-    '2': '40_2LINE',
-    'T': '40_TLINE'}
+    '2': '40_2LINE'
+}
 directions = {
+    'T': (0, -1),
     '1': ('S', 'N'),
     '2': (-1, 0),
-    'T': (0, -1)}
+}
+colors = {
+    'T': '\033[1m\033[38;2;35;31;32m\033[48;2;241;139;33m',
+    '1': '\033[1;48;2;41;130;64m',
+    '2': '\033[1;48;2;4;124;173m'
+}
 
 route_id = line_to_route_id[args.line]
 url = f"https://api.pugetsound.onebusaway.org/api/where/trips-for-route/{route_id}.json?key={api_key}"
@@ -164,6 +172,7 @@ class TrainGetter():
             except Exception as e:
                 print(f"Error processing trip {trip.get('tripId','?')}, skipping: {e}")
                 continue
+        print(colors[args.line] + f"{args.line} Line" + "\033[0m")
         endpoint = self.endpoint_name
         for t_sorted in sorted(out, key=lambda x: (-x.next_station_index + (x.direction == endpoint), x.pct_distance_along_trip)):
             print(t_sorted)

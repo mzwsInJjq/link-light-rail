@@ -13,6 +13,7 @@ The display order of trains is experimental and may be incorrect at times.
 - `seattle_1line.py` — script for the 1 Line.
 - `seattle_2line.py` — script for the 2 Line.
 - `get_stops_for_route.py` — helper to list stop names for a route (interactive / CLI).
+- `st_link.py` - script for all Lines.
 
 ## Quickstart
 1. Install dependency:
@@ -22,10 +23,11 @@ pip install requests
 
 2. Run a script:
 ```bash
-python seattle-link\seattle_1line.py
-python seattle-link\seattle_2line.py
-python seattle-link\seattle_Tline.py
-python seattle-link\get_stops_for_route.py
+python link-light-rail\seattle_1line.py
+python link-light-rail\seattle_2line.py
+python link-light-rail\seattle_Tline.py
+python link-light-rail\st_link.py
+python link-light-rail\get_stops_for_route.py
 ```
 
 ## Notes

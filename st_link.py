@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import argparse
-from unittest import case
 import requests
 import json
 from dataclasses import dataclass

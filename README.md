@@ -13,7 +13,15 @@ The display order of trains is experimental and may be incorrect at times.
 - `seattle_1line.py` — script for the 1 Line.
 - `seattle_2line.py` — script for the 2 Line.
 - `get_stops_for_route.py` — helper to list stop names for a route (interactive / CLI).
-- `st_link.py` - script for all Lines.
+- `st_link.py` — script for all Lines.
+```usage: st_link.py [-h] [-r {1,2,T}]
+
+Seattle Link Light Rail Train Tracker
+
+options:
+  -h, --help            show this help message and exit
+  -r {1,2,T}, --route {1,2,T}
+                        Route to track (default: 1```
 
 ## Quickstart
 1. Install dependency:

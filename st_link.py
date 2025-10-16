@@ -21,7 +21,7 @@ directions = {
     '2': (-1, 0),
     'T': (0, -1)}
 
-route_id = line_to_route[args.line]
+route_id = line_to_route_id[args.line]
 url = f"https://api.pugetsound.onebusaway.org/api/where/trips-for-route/{route_id}.json?key={api_key}"
 
 @dataclass
@@ -43,7 +43,7 @@ class Train():
 class TrainGetter():
     def __init__(self) -> None:
         self.stop_id_to_name = {}
-        match args.route:
+        match args.line:
             case '1':
                 self.name_to_index = {
                     "Federal Way Downtown": 0,

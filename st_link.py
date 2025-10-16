@@ -104,7 +104,7 @@ class TrainGetter():
 
         # precompute helpers used frequently to avoid repeated work
         self.station_names = list(self.name_to_index.keys())
-        self.line_directions = directions[args.route]
+        self.line_directions = directions[args.line]
         self.endpoint_name = (max(self.name_to_index, key=self.name_to_index.get)
                               if isinstance(self.line_directions[1], int)
                               else self.line_directions[1])
@@ -116,7 +116,7 @@ class TrainGetter():
 
     def station_name_to_index(self, name):
         return self.name_to_index[name]
-    
+
     def get_direction(self, trip_id, api_dict):
         # Build a trip-id -> direction-name map once per response (cached)
         if self._trip_direction_map is None:
@@ -145,7 +145,7 @@ class TrainGetter():
             return "(unknown stop)", -1
         index = self.station_name_to_index(name)
         return name, index
-    
+
     def get_trains(self, json_str) -> List[Train]:
         api_dict = json.loads(json_str)
         # build stop id -> name mapping once per response
@@ -167,7 +167,7 @@ class TrainGetter():
         endpoint = self.endpoint_name
         for t_sorted in sorted(out, key=lambda x: (-x.next_station_index + (x.direction == endpoint), x.pct_distance_along_trip)):
             print(t_sorted)
-            # print((-t_sorted.next_station_index + (t_sorted.direction == (max(self.name_to_index, key=self.name_to_index.get) if isinstance(directions[args.route][1], int) else directions[args.route][1])), t_sorted.pct_distance_along_trip))
+            # print((-t_sorted.next_station_index + (t_sorted.direction == (max(self.name_to_index, key=self.name_to_index.get) if isinstance(directions[args.line][1], int) else directions[args.line][1])), t_sorted.pct_distance_along_trip))
         return out
 
     def get_leg_time(self, trip_dict):
@@ -195,11 +195,11 @@ class TrainGetter():
         trip_id = trip_dict["tripId"]
         vehicle_id = trip_dict["status"]["vehicleId"]
         if not vehicle_id:
-            vehicle_id = " " * 13 if args.route != 'T' else " " * 4
+            vehicle_id = " " * 13 if args.line != 'T' else " " * 4
         direction = self.get_direction(trip_id, api_dict)
 
         # compare direction to the selected endpoint (use parentheses to force correct grouping)
-        if direction == (max(self.name_to_index, key=self.name_to_index.get) if isinstance(directions[args.route][1], int) else directions[args.route][1]):
+        if direction == (max(self.name_to_index, key=self.name_to_index.get) if isinstance(directions[args.line][1], int) else directions[args.line][1]):
             pct_distance_along_trip = 1 - (trip_dict["status"]["scheduledDistanceAlongTrip"] / trip_dict["status"]["totalDistanceAlongTrip"])
         else:
             pct_distance_along_trip = trip_dict["status"]["scheduledDistanceAlongTrip"] / trip_dict["status"]["totalDistanceAlongTrip"]

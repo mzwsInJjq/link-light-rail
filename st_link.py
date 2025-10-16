@@ -10,9 +10,9 @@ from typing import List
 api_key = "YOUR_API_KEY"
 
 parser = argparse.ArgumentParser(description="Seattle Link Light Rail Train Tracker")
-parser.add_argument('-r', '--route', type=str, choices=['1', '2', 'T'], default='1', help='Route to track (default: 1)')
+parser.add_argument('-l', '--line', type=str, choices=['1', '2', 'T'], default='1', help='Line to track (default: 1)')
 args = parser.parse_args()
-line_to_route = {
+line_to_route_id = {
     '1': '40_100479',
     '2': '40_2LINE',
     'T': '40_TLINE'}
@@ -21,8 +21,8 @@ directions = {
     '2': (-1, 0),
     'T': (0, -1)}
 
-line = line_to_route[args.route]
-url = f"https://api.pugetsound.onebusaway.org/api/where/trips-for-route/{line}.json?key={api_key}"
+route_id = line_to_route[args.line]
+url = f"https://api.pugetsound.onebusaway.org/api/where/trips-for-route/{route_id}.json?key={api_key}"
 
 @dataclass
 class Train():

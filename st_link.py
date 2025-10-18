@@ -174,9 +174,9 @@ class TrainGetter():
                 continue
         print(colors[args.line] + f"{args.line} Line" + "\033[0m")
         endpoint = self.endpoint_name
-        for t_sorted in sorted(out, key=lambda x: (-x.next_station_index + 0.25 * (x.direction == endpoint), x.pct_distance_along_trip)):
+        for t_sorted in sorted(out, key=lambda x: (-x.next_station_index + (x.direction == endpoint), x.pct_distance_along_trip)):
             print(t_sorted)
-            # print((-t_sorted.next_station_index + 0.25 * (t_sorted.direction == endpoint), t_sorted.pct_distance_along_trip))
+            # print((-t_sorted.next_station_index + (t_sorted.direction == endpoint), t_sorted.pct_distance_along_trip))
         return out
 
     def get_leg_time(self, trip_dict):

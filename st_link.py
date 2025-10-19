@@ -45,7 +45,7 @@ class Train():
 
     def __str__(self):
         return f"""
-{"\033[1;41m" + self.direction + "\033[0m"} {"\033[1;44m" + self.vehicle_id + "\033[0m"}
+{colors[args.line] + self.direction + "\033[0m"} {"\033[1;44m" + self.vehicle_id + "\033[0m"}
 {"\033[1;33m" + self.next_station} in {round(self.time_until)}s\033[0m"""
 
 class TrainGetter():

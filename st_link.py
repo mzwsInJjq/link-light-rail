@@ -20,7 +20,7 @@ line_to_route_id = {
 }
 directions = {
     'T': (0, -1),
-    '1': ('S', 'N'),
+    '1': (' S ', ' N '),
     '2': (-1, 0)
 }
 colors = {

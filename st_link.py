@@ -207,8 +207,8 @@ class TrainGetter():
             vehicle_id = " " * 13 if args.line != 'T' else " " * 4
         direction = self.get_direction(trip_id, api_dict)
 
-        # compare direction to the selected endpoint (use parentheses to force correct grouping)
-        if direction == (max(self.name_to_index, key=self.name_to_index.get) if isinstance(directions[args.line][1], int) else directions[args.line][1]):
+        # compare direction to the selected endpoint
+        if direction == self.endpoint_name:
             pct_distance_along_trip = 1 - (trip_dict["status"]["scheduledDistanceAlongTrip"] / trip_dict["status"]["totalDistanceAlongTrip"])
         else:
             pct_distance_along_trip = trip_dict["status"]["scheduledDistanceAlongTrip"] / trip_dict["status"]["totalDistanceAlongTrip"]

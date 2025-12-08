@@ -62,7 +62,7 @@ class TrainGetter():
                     "Tukwila Int'l Blvd": 5,
                     "Rainier Beach": 6,
                     "Othello": 7,
-                    "Graham Street", 8,
+                    "Graham Street": 8,
                     "Columbia City": 9,
                     "Mount Baker": 10,
                     "Beacon Hill": 11,

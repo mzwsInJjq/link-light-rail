@@ -21,7 +21,7 @@ line_to_route_id = {
 directions = {
     'T': (0, -1),
     '1': (' S ', ' N '),
-    '2': (-1, 0)
+    '2': (0, -1)
 }
 colors = {
     'T': '\033[1m\033[38;2;0;0;0m\033[48;2;243;139;0m',
@@ -62,37 +62,55 @@ class TrainGetter():
                     "Tukwila Int'l Blvd": 5,
                     "Rainier Beach": 6,
                     "Othello": 7,
-                    "Columbia City": 8,
-                    "Mount Baker": 9,
-                    "Beacon Hill": 10,
-                    "SODO": 11,
-                    "Stadium": 12,
-                    "Int'l Dist/Chinatown": 13,
-                    "Pioneer Square": 14,
-                    "Symphony": 15,
-                    "Westlake": 16,
-                    "Capitol Hill": 17,
-                    "Univ of Washington": 18,
-                    "U District": 19,
-                    "Roosevelt": 20,
-                    "Northgate": 21,
+                    "Graham Street", 8,
+                    "Columbia City": 9,
+                    "Mount Baker": 10,
+                    "Beacon Hill": 11,
+                    "SODO": 12,
+                    "Stadium": 13,
+                    "Int'l Dist/Chinatown": 14,
+                    "Pioneer Square": 15,
+                    "Symphony": 16,
+                    "Westlake": 17,
+                    "Capitol Hill": 18,
+                    "Univ of Washington": 19,
+                    "U District": 20,
+                    "Roosevelt": 21,
+                    "Northgate": 22,
+                    "Pinehurst": 23,
+                    "Shoreline South/148th": 24,
+                    "Shoreline North/185th": 25,
+                    "Mountlake Terrace": 26,
+                    "Lynnwood City Center": 27
+                }
+            case '2':
+                self.name_to_index = {
+                    "Downtown Redmond": 0,
+                    "Marymoor Village": 1,
+                    "Redmond Technology": 2,
+                    "Overlake Village": 3,
+                    "BelRed": 4,
+                    "Spring District": 5,
+                    "Wilburton": 6,
+                    "Bellevue Downtown": 7,
+                    "East Main": 8,
+                    "South Bellevue": 9,
+                    "Mercer Island": 10,
+                    "Judkins Park": 11,
+                    "Int'l Dist/Chinatown": 12,
+                    "Pioneer Square": 13,
+                    "Symphony": 14,
+                    "Westlake": 15,
+                    "Capitol Hill": 16,
+                    "Univ of Washington": 17,
+                    "U District": 18,
+                    "Roosevelt": 19,
+                    "Northgate": 20,
+                    "Pinehurst": 21,
                     "Shoreline South/148th": 22,
                     "Shoreline North/185th": 23,
                     "Mountlake Terrace": 24,
                     "Lynnwood City Center": 25
-                }
-            case '2':
-                self.name_to_index = {
-                    "South Bellevue": 0,
-                    "East Main": 1,
-                    "Bellevue Downtown": 2,
-                    "Wilburton": 3,
-                    "Spring District": 4,
-                    "BelRed": 5,
-                    "Overlake Village": 6,
-                    "Redmond Technology": 7,
-                    "Marymoor Village": 8,
-                    "Downtown Redmond": 9
                 }
             case 'T':
                 self.name_to_index = {

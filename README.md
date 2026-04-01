@@ -9,11 +9,11 @@ The display order of trains is experimental and may be incorrect at times.
 ![Output Example](seattle-link-light-rail.png)
 
 ## Included files
-- `seattle_Tline.py` — script for the T Line (Tacoma).
-- `seattle_1line.py` — script for the 1 Line.
-- `seattle_2line.py` — script for the 2 Line.
+- `seattle_Tline.py` — script for the T Line (Tacoma). (_deprecated_)
+- `seattle_1line.py` — script for the 1 Line. (_deprecated_)
+- `seattle_2line.py` — script for the 2 Line. (_deprecated_)
 - `get_stops_for_route.py` — helper to list stop names for a route (interactive / CLI).
-- `st_link.py` — script for all Lines.
+- **`st_link.py` — script for all Lines.**
 ```
 usage: st_link.py [-h] [-l {1,2,T}]
 
@@ -33,9 +33,6 @@ pip install requests
 
 2. Run a script:
 ```bash
-python link-light-rail\seattle_1line.py
-python link-light-rail\seattle_2line.py
-python link-light-rail\seattle_Tline.py
 python link-light-rail\st_link.py
 python link-light-rail\get_stops_for_route.py
 ```

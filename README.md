@@ -1,4 +1,4 @@
-# seattle-link-light-rail
+# Seattle Link Light Rail Train Tracker
 
 A set of small Python scripts that print the real-time position of Link Light Rail trains on a given line.
 
@@ -6,14 +6,14 @@ Based on and inspired by the work of @waldenhillegass (https://github.com/walden
 
 The display order of trains is experimental and may be incorrect at times.
 
-![Output Example](seattle-link-light-rail.png)
+![Output Example](link-light-rail.png)
 
 ## Included files
+- **`st_link.py` — script for all Lines.**
+- `get_stops_for_route.py` — helper to list stop names for a route (interactive / CLI).
 - `seattle_Tline.py` — script for the T Line (Tacoma). (_deprecated_)
 - `seattle_1line.py` — script for the 1 Line. (_deprecated_)
 - `seattle_2line.py` — script for the 2 Line. (_deprecated_)
-- `get_stops_for_route.py` — helper to list stop names for a route (interactive / CLI).
-- **`st_link.py` — script for all Lines.**
 ```
 usage: st_link.py [-h] [-l {1,2,T}]
 

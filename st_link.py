@@ -194,10 +194,14 @@ class TrainGetter():
                 continue
         print(colors[args.line] + f"{args.line} Line" + "\033[0m")
 
-        pos = x.next_station_index - 0.5 if (x.direction == self.endpoint_name) else x.next_station_index + 0.5
-        for t_sorted in sorted(out, key=lambda x: (-pos, x.pct_distance_along_trip)):
+        def northness(x: Train) -> float:
+            if x.next_station_index < 0:
+                return float("-inf")
+            return (x.next_station_index - 0.5) if (x.direction == self.endpoint_name) else (x.next_station_index + 0.5)
+
+        for t_sorted in sorted(out, key=lambda x: (-northness(x), x.pct_distance_along_trip)):
             print(t_sorted)
-            # print((-t_sorted.next_station_index + (t_sorted.direction == self.endpoint_name), t_sorted.pct_distance_along_trip))
+            # print((-northness(x), t_sorted.pct_distance_along_trip))
         return out
 
     def get_leg_time(self, trip_dict):

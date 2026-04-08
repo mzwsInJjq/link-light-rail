@@ -201,7 +201,7 @@ class TrainGetter():
 
         for t_sorted in sorted(out, key=lambda x: (-northness(x), x.pct_distance_along_trip)):
             print(t_sorted)
-            # print((-northness(x), t_sorted.pct_distance_along_trip))
+            # print((-northness(t_sorted), t_sorted.pct_distance_along_trip))
         return out
 
     def get_leg_time(self, trip_dict):

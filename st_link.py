@@ -195,8 +195,6 @@ class TrainGetter():
         print(colors[args.line] + f"{args.line} Line" + "\033[0m")
 
         def northness(x: Train) -> float:
-            if x.next_station_index < 0:
-                return float("-inf")
             return (x.next_station_index - 0.5) if (x.direction == self.endpoint_name) else (x.next_station_index + 0.5)
 
         for t_sorted in sorted(out, key=lambda x: (-northness(x), x.pct_distance_along_trip)):

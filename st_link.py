@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import argparse
 import requests
 import json
@@ -244,12 +245,12 @@ class TrainGetter():
         )
 
 if __name__ == "__main__":
-    response = requests.get(url)
-
-    if response.status_code == 200:
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
         traingetter = TrainGetter()
         traingetter.get_trains(json_str=response.text)
 
-    else:
+    except:
         print("Request failed")
-        exit()
+        sys.exit(1)

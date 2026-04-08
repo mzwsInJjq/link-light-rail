@@ -234,9 +234,9 @@ class TrainGetter():
 
         # compare direction to the selected endpoint
         if direction == self.endpoint_name:
-            pct_distance_along_trip = 1 - (trip_dict["status"]["scheduledDistanceAlongTrip"] / trip_dict["status"]["totalDistanceAlongTrip"])
+            pct_distance_along_trip = 1 - (trip_dict["status"]["distanceAlongTrip"] / trip_dict["status"]["totalDistanceAlongTrip"])
         else:
-            pct_distance_along_trip = trip_dict["status"]["scheduledDistanceAlongTrip"] / trip_dict["status"]["totalDistanceAlongTrip"]
+            pct_distance_along_trip = trip_dict["status"]["distanceAlongTrip"] / trip_dict["status"]["totalDistanceAlongTrip"]
 
         return Train(
             id=trip_id,

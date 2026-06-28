@@ -184,7 +184,7 @@ class TrainGetter():
         route_id_without_agency = route_id.split("_")[-1]
         for trip in api_dict["data"]["list"]:
             # skip trips from the wrong route (e.g., 1 vs 2)
-            if trip.get("tripId", '?').split("_")[-2] != route_id_without_agency:
+            if trip.get('tripId', '?').split("_")[-2] != route_id_without_agency:
                 continue
             # skip trips with no status
             if "status" not in trip:
